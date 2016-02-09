@@ -1,43 +1,43 @@
 var reps = require('./lib/reps');
+var express = require('express');
+var app = express();
 
-reps.allByZip('84035', function(err, results){
-  console.log(results);
+app.get('/all/by-zip/:zip', function(req, res, next){
+  reps.allByZip(req.params.zip, function(err, people){
+    if (err) {return next(err);}
+    res.json(people);
+  });
 });
 
-console.log(reps);
-
-reps.repsByName('Hatch', function(err, results){
-  console.log(results);
+app.get('/reps/by-name/:name', function(req, res, next){
+  reps.repsByName(req.params.name, function(err, people){
+    if (err) {return next(err);}
+    res.json(people);
+  });
 });
 
-console.log(reps);
-
-reps.repsByZip('84058', function(err, results){
-  console.log(results);
+app.get('/reps/by-state/:state', function(req, res, next){
+  reps.repsByState(req.params.state, function(err, people){
+    if (err) {return next(err);}
+    res.json(people);
+  });
 });
 
-console.log(reps);
-
-reps.repsByState('Utah', function(err, results){
-  console.log(results);
+app.get('/sens/by-name/:name', function(req, res, next){
+  reps.sensByName(req.params.name, function(err, people){
+    if (err) {return next(err);}
+    res.json(people);
+  });
 });
 
-console.log(reps);
-
-reps.sensByName('Love', function(err, results){
-  console.log(results);
+app.get('/sens/by-state/:state', function(req, res, next){
+  reps.sensByState(req.params.state, function(err, people){
+    if (err) {return next(err);}
+    res.json(people);
+  });
+});
+app.listen(3000, function(){
+  console.log('listening yo');
 });
 
-console.log(reps);
-
-reps.sensByZip('84058', function(err, results){
-  console.log(results);
-});
-
-console.log(reps);
-
-reps.sensByState('Utah', function(err, results){
-  console.log(results);
-});
-
-console.log(reps);
+module.exports = app;
