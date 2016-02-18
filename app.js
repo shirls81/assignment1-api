@@ -31,9 +31,6 @@ if (method){
 });
 }
 });
-app.listen(8000, function(){
-  console.log('Server started on port 8000');
-});
 
 app.get('/all/by-zip/:zip', function(req, res, next){
   reps.allByZip(req.params.zip, function(err, people){
@@ -70,4 +67,7 @@ app.get('/sens/by-state/:state', function(req, res, next){
   });
 });
 
+app.listen(8000, function(){
+  console.log('Server started on port 8000');
+});
 module.exports = app;
