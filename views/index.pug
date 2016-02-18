@@ -1,0 +1,33 @@
+html
+  head
+    title Who is my representative
+  body
+      h1 Who is my representative
+      form(method='get' action='/')
+        select(name='type')
+          option(value='zip') Zip
+          option(value='name') Name
+          option(value='state') State
+        input(type='text' name='search')
+        button Submit 
+        
+        if zip
+          p you searched this zip:#{zip}
+        if name
+          p you searched this name: #{name}
+        if state
+          p you searched this state: #{state}    
+        if search
+          p Your search was #{search}  
+      //-      state
+      //-      zip 
+      //- 
+      //- p name = #{name}
+      //-     if name 
+      //-       p Found name!
+      //-     if  arr && arr.length
+      //-       ul 
+      //-           for i in arr
+      //-             li #{i}
+            
+        
