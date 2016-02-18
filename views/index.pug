@@ -17,17 +17,25 @@ html
           p you searched this name: #{name}
         if state
           p you searched this state: #{state}    
-        if search
-          p Your search was #{search}  
-      //-      state
-      //-      zip 
-      //- 
-      //- p name = #{name}
-      //-     if name 
-      //-       p Found name!
-      //-     if  arr && arr.length
-      //-       ul 
-      //-           for i in arr
-      //-             li #{i}
-            
         
+      p name = #{name}
+          if name 
+            p Found name!
+          if  arr && arr.length
+          ul 
+            for i in arr
+              li #{i}
+        p zip = #{zip}
+          if zip 
+              p Found zip!
+          if  arr && arr.length
+          ul 
+            for i in arr
+              li #{i}            
+              p state = #{state}
+          if state
+            p Found state!
+          if  arr && arr.length
+          ul 
+            for i in arr
+              li #{i}

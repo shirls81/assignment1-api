@@ -10,7 +10,6 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
 app.set('view cache', false);
 
-
 app.get('/', function(req, res, next){
   var method;
   if (req.query.type === 'zip'){
@@ -20,16 +19,18 @@ app.get('/', function(req, res, next){
   } else if (req.query.type === 'state'){
   method = reps.repsByState;
 }
-
 if (method){
   method(req.query.search, function(err, people){
     if (err) {return next (err); }
-    res.render('index', {
-      reps: people,
-    });
+  res.render('index', {
+    reps: people,
+    name: 'name',
+    zip: 'zip',
+    state: 'state',
   });
+});
 }
-
+});
 app.listen(8000, function(){
   console.log('Server started on port 8000');
 });
