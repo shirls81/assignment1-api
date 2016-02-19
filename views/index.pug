@@ -10,32 +10,14 @@ html
           option(value='state') State
         input(type='text' name='search')
         button Submit 
-        
-        if zip
-          p you searched this zip:#{zip}
-        if name
-          p you searched this name: #{name}
-        if state
-          p you searched this state: #{state}    
-        
-      p name = #{name}
-          if name 
-            p Found name!
-          if  arr && arr.length
-          ul 
-            for i in arr
-              li #{i}
-        p zip = #{zip}
-          if zip 
-              p Found zip!
-          if  arr && arr.length
-          ul 
-            for i in arr
-              li #{i}            
-              p state = #{state}
-          if state
-            p Found state!
-          if  arr && arr.length
-          ul 
-            for i in arr
-              li #{i}
+
+        if type
+          p You searched for type: #{type}
+        if search
+          p Your search query was: #{search}
+              
+        if reps
+          for rep in reps
+            p= rep.zip
+            p= rep.name
+            p= rep.state
